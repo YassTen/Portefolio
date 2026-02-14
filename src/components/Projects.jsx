@@ -8,30 +8,30 @@ const Projects = () => {
     const projects = [
         {
             id: 1,
-            title: 'Architecture de Sécurité & Hardening (Home Lab)',
-            description: 'Déploiement d\'un environnement virtuel isolé (VMware LAN Segments) pour simuler des attaques, auditer un poste Windows avec Nmap et Wireshark, et implémenter des mesures de défense (Pare-feu).',
-            image: 'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=800&h=400&fit=crop',
-            tags: ['VMware', 'Nmap', 'Wireshark', 'Firewall'],
-            githubUrl: '#',
-            notionUrl: '#',
-        },
-        {
-            id: 2,
             title: 'Scanner de vulnérabilités SSL/TLS',
             description: 'Développement d\'un outil en Python pour automatiser l\'audit des configurations HTTPS, détectant les protocoles obsolètes et les suites de chiffrement faibles.',
             image: 'https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=800&h=400&fit=crop',
             tags: ['Python', 'SSL/TLS', 'Security Audit'],
-            githubUrl: '#',
-            notionUrl: '#',
+            githubUrl: 'https://github.com/YassTen/Scanner_SSL_TLS.git',
+            notionUrl: 'https://www.notion.so/Scanner-de-vuln-rabilit-s-SSL-TLS-307e1deddfbb80ab9d5defe4d142d016?source=copy_link',
         },
         {
-            id: 3,
+            id: 2,
             title: 'ATS Web Application',
             description: 'Full-stack Applicant Tracking System with secure authentication (BCrypt, JWT), RBAC access control, file upload validation, and OWASP-compliant security. Built with Vue.js, Node.js/Express, and PostgreSQL.',
             image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=400&fit=crop',
             tags: ['Vue.js', 'Node.js', 'PostgreSQL', 'JWT', 'OWASP'],
             githubUrl: 'https://github.com/YassTen/ATS-WebApp',
             notionUrl: 'https://www.notion.so/Audit-et-D-veloppement-de-l-ATS-WebApp-2ebe1deddfbb80f5b806f04f74b3482d',
+        },
+        {
+            id: 3,
+            title: 'Architecture de Sécurité & Hardening (Home Lab)',
+            description: 'Déploiement d\'un environnement virtuel isolé (VMware LAN Segments) pour simuler des attaques, auditer un poste Windows avec Nmap et Wireshark, et implémenter des mesures de défense (Pare-feu).',
+            image: 'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=800&h=400&fit=crop',
+            tags: ['VMware', 'Nmap', 'Wireshark', 'Firewall'],
+            githubUrl: '#',
+            notionUrl: '#',
         }
     ]
 
