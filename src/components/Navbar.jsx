@@ -8,7 +8,7 @@ const Navbar = () => {
         { name: 'À propos', href: '#about' },
         { name: 'Projets', href: '#projects' },
         { name: 'Contact', href: '#contact' },
-        { name: 'CV', href: '/CV_Yassine_TENZEKHTI.pdf', isHighlighted: true, isExternal: true },
+        { name: 'CV', href: '/CV-YassineTENZEKHTI.pdf', isHighlighted: true, isExternal: true },
     ]
 
     return (
