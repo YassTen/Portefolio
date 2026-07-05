@@ -13,7 +13,7 @@ const Projects = () => {
             image: 'https://images.unsplash.com/photo-1563986768609-322da13575f3?w=800&h=400&fit=crop',
             tags: ['Wazuh', 'XDR', 'Docker', 'Threat Intel', 'Active Response'],
             githubUrl: 'https://github.com/YassTen/siem-xdr-wazuh',
-            notionUrl: '#',
+            notionUrl: 'https://www.notion.so/Impl-mentation-d-un-SIEM-XDR-avec-Wazuh-394e1deddfbb80b2a346f6c176bcaf33?source=copy_link',
         },
         {
             id: 2,
