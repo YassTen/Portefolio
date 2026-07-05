@@ -8,6 +8,15 @@ const Projects = () => {
     const projects = [
         {
             id: 1,
+            title: 'Implémentation SIEM & XDR (Wazuh)',
+            description: 'Déploiement d\'une architecture de sécurité conteneurisée (Docker Multi-Node). Configuration de la Threat Intelligence (VirusTotal API), de règles de corrélation avancées pour les compromissions SSH et d\'une réponse active (Active Response) pour bloquer automatiquement les attaques brute-force en temps réel.',
+            image: 'https://images.unsplash.com/photo-1563986768609-322da13575f3?w=800&h=400&fit=crop',
+            tags: ['Wazuh', 'XDR', 'Docker', 'Threat Intel', 'Active Response'],
+            githubUrl: 'https://github.com/YassTen/siem-xdr-wazuh',
+            notionUrl: '#',
+        },
+        {
+            id: 2,
             title: 'Scanner de vulnérabilités SSL/TLS',
             description: 'Développement d\'un outil en Python pour automatiser l\'audit des configurations HTTPS, détectant les protocoles obsolètes et les suites de chiffrement faibles.',
             image: 'https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=800&h=400&fit=crop',
@@ -16,7 +25,7 @@ const Projects = () => {
             notionUrl: 'https://www.notion.so/Scanner-de-vuln-rabilit-s-SSL-TLS-307e1deddfbb80ab9d5defe4d142d016?source=copy_link',
         },
         {
-            id: 2,
+            id: 3,
             title: 'ATS Web Application',
             description: 'Full-stack Applicant Tracking System with secure authentication (BCrypt, JWT), RBAC access control, file upload validation, and OWASP-compliant security. Built with Vue.js, Node.js/Express, and PostgreSQL.',
             image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=400&fit=crop',
@@ -25,7 +34,7 @@ const Projects = () => {
             notionUrl: 'https://www.notion.so/Audit-et-D-veloppement-de-l-ATS-WebApp-2ebe1deddfbb80f5b806f04f74b3482d',
         },
         {
-            id: 3,
+            id: 4,
             title: 'Architecture de Sécurité & Hardening (Home Lab)',
             description: 'Déploiement d\'un environnement virtuel isolé (VMware LAN Segments) pour simuler des attaques, auditer un poste Windows avec Nmap et Wireshark, et implémenter des mesures de défense (Pare-feu).',
             image: 'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=800&h=400&fit=crop',
@@ -103,25 +112,29 @@ const Projects = () => {
 
                             {/* Action Buttons */}
                             <div className="flex flex-wrap gap-4">
-                                <a
-                                    href={currentProject.githubUrl}
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    className="inline-flex items-center gap-2 px-6 py-3 bg-gray-800 hover:bg-gray-700 text-white font-medium rounded-xl transition-all duration-300 hover:scale-105 hover:shadow-lg"
-                                >
-                                    <FiGithub size={20} />
-                                    Voir le code (GitHub)
-                                </a>
+                                {currentProject.githubUrl && currentProject.githubUrl !== '#' && (
+                                    <a
+                                        href={currentProject.githubUrl}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className="inline-flex items-center gap-2 px-6 py-3 bg-gray-800 hover:bg-gray-700 text-white font-medium rounded-xl transition-all duration-300 hover:scale-105 hover:shadow-lg"
+                                    >
+                                        <FiGithub size={20} />
+                                        Voir le code (GitHub)
+                                    </a>
+                                )}
 
-                                <a
-                                    href={currentProject.notionUrl}
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    className="inline-flex items-center gap-2 px-6 py-3 bg-primary-600 hover:bg-primary-500 text-white font-medium rounded-xl transition-all duration-300 hover:scale-105 hover:shadow-lg"
-                                >
-                                    <SiNotion size={20} />
-                                    Lire le rapport (Notion)
-                                </a>
+                                {currentProject.notionUrl && currentProject.notionUrl !== '#' && (
+                                    <a
+                                        href={currentProject.notionUrl}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className="inline-flex items-center gap-2 px-6 py-3 bg-primary-600 hover:bg-primary-500 text-white font-medium rounded-xl transition-all duration-300 hover:scale-105 hover:shadow-lg"
+                                    >
+                                        <SiNotion size={20} />
+                                        Lire le rapport (Notion)
+                                    </a>
+                                )}
                             </div>
                         </div>
                     </div>
