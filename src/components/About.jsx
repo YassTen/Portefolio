@@ -1,5 +1,5 @@
 import { FaPython, FaLinux, FaNodeJs } from 'react-icons/fa'
-import { SiWireshark, SiCisco, SiPostgresql, SiVmware, SiTypescript } from 'react-icons/si'
+import { SiWireshark, SiCisco, SiPostgresql, SiVmware, SiTypescript, SiDocker, SiTailscale, SiVirustotal } from 'react-icons/si'
 import { VscTerminalBash } from 'react-icons/vsc'
 import { BiNetworkChart } from 'react-icons/bi'
 
@@ -11,6 +11,9 @@ const About = () => {
         { name: 'Wireshark', icon: SiWireshark, color: '#1679a7' },
         { name: 'Nmap', icon: BiNetworkChart, color: '#00b4d8' },
         { name: 'Cisco Packet Tracer', icon: SiCisco, color: '#1ba0d7' },
+        { name: 'Docker', icon: SiDocker, color: '#2496ed' },
+        { name: 'Tailscale', icon: SiTailscale, color: '#ff7e5f' },
+        { name: 'VirusTotal', icon: SiVirustotal, color: '#394eff' },
         { name: 'Node.js', icon: FaNodeJs, color: '#339933' },
         { name: 'PostgreSQL', icon: SiPostgresql, color: '#4169e1' },
         { name: 'VMware', icon: SiVmware, color: '#607078' },
