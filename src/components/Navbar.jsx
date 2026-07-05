@@ -1,14 +1,26 @@
-import { useState } from 'react'
-import { FiMenu, FiX } from 'react-icons/fi'
+import { useState, useRef, useEffect } from 'react'
+import { FiMenu, FiX, FiChevronDown } from 'react-icons/fi'
 
 const Navbar = () => {
     const [isOpen, setIsOpen] = useState(false)
+    const [showCvDropdown, setShowCvDropdown] = useState(false)
+    const dropdownRef = useRef(null)
+
+    // Fermer le dropdown si on clique en dehors
+    useEffect(() => {
+        const handleClickOutside = (event) => {
+            if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+                setShowCvDropdown(false);
+            }
+        };
+        document.addEventListener('mousedown', handleClickOutside);
+        return () => document.removeEventListener('mousedown', handleClickOutside);
+    }, []);
 
     const navLinks = [
         { name: 'À propos', href: '#about' },
         { name: 'Projets', href: '#projects' },
         { name: 'Contact', href: '#contact' },
-        { name: 'CV', href: '/CV-YassineTENZEKHTI.pdf', isHighlighted: true, isExternal: true },
     ]
 
     return (
@@ -29,16 +41,44 @@ const Navbar = () => {
                             <a
                                 key={link.name}
                                 href={link.href}
-                                target={link.isExternal ? '_blank' : undefined}
-                                rel={link.isExternal ? 'noopener noreferrer' : undefined}
-                                className={`text-sm font-medium transition-all duration-300 ${link.isHighlighted
-                                    ? 'text-primary-400 hover:text-primary-300 border border-primary-500 px-4 py-2 rounded-lg hover:bg-primary-500/20'
-                                    : 'text-gray-300 hover:text-white hover:scale-105'
-                                    }`}
+                                className="text-sm font-medium text-gray-300 hover:text-white hover:scale-105 transition-all duration-300"
                             >
                                 {link.name}
                             </a>
                         ))}
+
+                        {/* CV Dropdown Desktop */}
+                        <div className="relative" ref={dropdownRef}>
+                            <button
+                                onClick={() => setShowCvDropdown(!showCvDropdown)}
+                                className="text-sm font-medium text-primary-400 hover:text-primary-300 border border-primary-500 px-4 py-2 rounded-lg hover:bg-primary-500/20 flex items-center gap-1.5 transition-all duration-300"
+                            >
+                                CV <FiChevronDown size={14} className={`transition-transform duration-300 ${showCvDropdown ? 'rotate-180' : ''}`} />
+                            </button>
+
+                            {showCvDropdown && (
+                                <div className="absolute right-0 mt-2 w-32 rounded-xl bg-gray-900/95 border border-primary-500/30 backdrop-blur-md overflow-hidden shadow-2xl py-1 z-50 animate-fadeIn">
+                                    <a
+                                        href="/CV-YassineTENZEKHTI.pdf"
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        onClick={() => setShowCvDropdown(false)}
+                                        className="block px-4 py-2.5 text-sm text-gray-300 hover:text-white hover:bg-primary-500/20 transition-all duration-200"
+                                    >
+                                        Français (FR)
+                                    </a>
+                                    <a
+                                        href="/CV-YassineTENZEKHTI-EN.pdf"
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        onClick={() => setShowCvDropdown(false)}
+                                        className="block px-4 py-2.5 text-sm text-gray-300 hover:text-white hover:bg-primary-500/20 transition-all duration-200"
+                                    >
+                                        English (EN)
+                                    </a>
+                                </div>
+                            )}
+                        </div>
                     </div>
 
                     {/* Mobile menu button */}
@@ -57,17 +97,37 @@ const Navbar = () => {
                             <a
                                 key={link.name}
                                 href={link.href}
-                                target={link.isExternal ? '_blank' : undefined}
-                                rel={link.isExternal ? 'noopener noreferrer' : undefined}
                                 onClick={() => setIsOpen(false)}
-                                className={`block py-3 px-4 text-sm font-medium transition-colors ${link.isHighlighted
-                                    ? 'text-primary-400'
-                                    : 'text-gray-300 hover:text-white'
-                                    }`}
+                                className="block py-3 px-4 text-sm font-medium text-gray-300 hover:text-white transition-colors"
                             >
                                 {link.name}
                             </a>
                         ))}
+
+                        {/* CV choices in Mobile Menu */}
+                        <div className="py-2 border-t border-primary-900/30 mt-2 px-4">
+                            <span className="block text-xs font-semibold text-gray-500 uppercase tracking-wider mb-2">Mon CV</span>
+                            <div className="flex gap-4">
+                                <a
+                                    href="/CV-YassineTENZEKHTI.pdf"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    onClick={() => setIsOpen(false)}
+                                    className="text-sm font-medium text-primary-400 hover:text-primary-300 border border-primary-500/30 px-3.5 py-1.5 rounded-lg hover:bg-primary-500/10 transition-all"
+                                >
+                                    FR
+                                </a>
+                                <a
+                                    href="/CV-YassineTENZEKHTI-EN.pdf"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    onClick={() => setIsOpen(false)}
+                                    className="text-sm font-medium text-primary-400 hover:text-primary-300 border border-primary-500/30 px-3.5 py-1.5 rounded-lg hover:bg-primary-500/10 transition-all"
+                                >
+                                    EN
+                                </a>
+                            </div>
+                        </div>
                     </div>
                 )}
             </div>
