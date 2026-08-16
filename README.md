@@ -2,7 +2,7 @@
 
 This repository contains the source code for my personal portfolio website. It showcases my security projects, full-stack web applications, technical reports, and resumes.
 
-Live version: [https://yasssten.github.io/Portefolio/](https://portefolioy.netlify.app)
+Live version: [https://portefolioy.netlify.app](https://portefolioy.netlify.app)
 
 ## Tech Stack
 
